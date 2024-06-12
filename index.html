@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>two-slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="testimonails">
+  <div class="content-width">
+    <h2>Hear what our customers have to say</h2>
+    <div class="testimonails-slider" data-ctry="default">
+      <div class="slider-item">
+        <div class="flex-element">
+          <div class="testimonails-cnt">
+            <p> "The features and scope of OlivERP cannot be replicated by any commercial ERP available without spending millions of USD. This was only possible with Zoho Creator. Thank you for creating Zoho Creator!"</p>
+            <div class="testimonial-name-img">
+              <img alt=""  src="" class="tsti-img" width="60" height="60">
+              <p class="test-cust inup2">Mehmet Ozkan, <span> Proprietor, Ozelia</span></p>
+            </div>
+        
+          </div>
+        </div>
+      </div>
+      <div class="slider-item">
+        <div class="flex-element">
+          <div class="testimonails-cnt">
+            <p> "The Zoho Creator application was so successful that our team and clients started demanding it. We're currently using it for 14 clients in 3 languages and 3 countries in Europe."</p>
+            <div class="testimonial-name-img">
+              <img alt=""  src="" class="tsti-img" width="60" height="60">
+              <p class="test-cust inup2">Cesar Viteri, <span> CIO, AirRail</span></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="slider-item">
+        <div class="flex-element">
+          <div class="testimonails-cnt">
+            <p> "333 The Zoho Creator application was so successful that our team and clients started demanding it. We're currently using it for 14 clients in 3 languages and 3 countries in Europe."</p>
+            <div class="testimonial-name-img">
+              <img alt=""  src="" class="tsti-img" width="60" height="60">
+              <p class="test-cust inup2">Cesar Viteri, <span> CIO, AirRail</span></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <span class="prev"></span>
+      <span class="next"></span>
+    </div>
+    <div class="dots">
+      <span class="dot" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+
+    </div>
+  </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const testimonials = document.querySelectorAll('.slider-item');
+    const dots = document.querySelectorAll('.dot');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+    let currentIndex = 0;
+    let interval;
+    const showTestimonial = (index) => {
+        testimonials.forEach((testimonial, i) => {
+            testimonial.style.display = i === index ? 'block' : 'none';
+        });
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    };
+    const changeTestimonial = (direction) => {
+        currentIndex = (currentIndex + direction + testimonials.length) % testimonials.length;
+        showTestimonial(currentIndex);
+    };
+    const startAutoSlide = () => {
+        interval = setInterval(() => changeTestimonial(1), 5000);
+    };
+    const resetAutoSlide = () => {
+        clearInterval(interval);
+        startAutoSlide();
+    };
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            showTestimonial(currentIndex);
+            resetAutoSlide();
+        });
+    });
+    prev.addEventListener('click', () => {
+        changeTestimonial(-1);
+        resetAutoSlide();
+    });
+    next.addEventListener('click', () => {
+        changeTestimonial(1);
+        resetAutoSlide();
+    });
+    showTestimonial(currentIndex);
+    startAutoSlide();
+});
+
+  </script>
+
+
+
+</body>
+</html>

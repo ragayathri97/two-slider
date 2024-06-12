@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+.flex-element{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.content-width{
+    max-width: 1170px;
+    margin: 0 auto;
+    padding:80px 0px;
+}
+    /* Testimonials */
+
+    .tsti-img{
+        background-color: #898989;
+        height: 60px;
+        width: 60px;
+        display: block;
+        margin: 0 20px 10px 0px;
+        border-radius: 50px;
+      }      
+      .testimonails-slider .story-item {
+          display: none;
+      }
+      
+      .testimonails-slider .story-item:first-child {
+          display: block;
+      }
+      
+      .slider-controls {
+          position: relative;
+          top: -50px;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          color: #333;
+          font-size: 24px;
+          cursor: pointer;
+      }
+      
+      .slider-controls .prev, .slider-controls .next {
+          user-select: none;
+      }
+      .slider-controls .prev::before, .slider-controls .next::before{
+          content: "";
+          position: absolute;
+          border-radius: 2px;
+          width: 12px;
+          height: 12px;
+          border-left: 3px solid #000;
+          border-bottom: 3px solid #000;
+          border-radius: 2px;
+          background: transparent;
+      }
+      .slider-controls .prev::before{
+          top: 10px;
+          left: 12px;
+          transform: rotate(45deg);
+      
+      }
+      .slider-controls .next::before{
+        top: 10px;
+          right: 12px;
+          transform: rotate(225deg);    
+      }     
+      .dots {
+          text-align: center;
+          position: relative;
+          top: -20px;
+      }
+      .dots .dot {
+          height: 15px;
+          width: 15px;
+          margin: 0 5px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          cursor: pointer;
+          transition: background-color 0.6s ease;
+      }
+      .dots .dot.active {
+          background-color: #717171;
+      }
+      
+      /* End Testimonials */
+      
